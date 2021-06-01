@@ -4,7 +4,7 @@ import Chart from './Chart';
 import {TickerSymbols} from './symbols';
 import { Dropdown, Container } from "semantic-ui-react";
 function Home(){
-    var [chart,setChart]=useState(<Chart key="TSLA" symbol="TSLA" name="TESLA INC."/>);
+    var [chart,setChart]=useState(<Chart key="TSLA" symbol="TSLA" charttype='bigchart' dottype={true}/>);
   const options= TickerSymbols.map(ds => {
     return {
         key: ds.symbol,
@@ -15,15 +15,12 @@ function Home(){
   
   const handleChange=(event,data)=>{
     var sym=data.value;
-      if(sym==='')
-        setChart()
-      else 
-        setChart(<Chart key={sym} symbol={sym} name={data.text}/>)
+    setChart(<Chart key={sym} symbol={sym} name={data.text} charttype='bigchart' dottype={true}/>)
 
   }
   return (
     <div className="App">
-      <Container style={{ marginTop: '7em' }}>
+      <Container style={{ marginTop: '5em' }}>
       <Dropdown
           placeholder='Select Stock'
           fluid

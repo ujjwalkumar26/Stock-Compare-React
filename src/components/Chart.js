@@ -39,7 +39,7 @@ function Chart(props){
 
     
     return(
-        <Container className="chart">
+        <Container className={props.charttype}>
         <Segment style={{ marginTop: '1em' }}> {props.symbol}</Segment>
         <ResponsiveContainer width="100%" height="100%">
         <LineChart
@@ -58,10 +58,10 @@ function Chart(props){
           <YAxis type="number" domain={['auto', 'auto']}/>
           <Tooltip />
           <Legend />
-          <Line type="monotone" dataKey="high" stroke="#f16a70" activeDot={{ r: 8 }} />
-          <Line type="monotone" dataKey="low" stroke="#b1d877" />
-          <Line type="monotone" dataKey="open" stroke="#8cdcda" />
-          <Line type="monotone" dataKey="close" stroke="#4d4d4d" />
+          <Line type="monotone" dataKey="high" stroke="#f16a70" dot={props.dottype} />
+          <Line type="monotone" dataKey="low" stroke="#b1d877"  dot={props.dottype} />
+          <Line type="monotone" dataKey="open" stroke="#8cdcda"  dot={props.dottype} />
+          <Line type="monotone" dataKey="close" stroke="#4d4d4d" dot={props.dottype}/>
 
         </LineChart>
       </ResponsiveContainer>

@@ -36,7 +36,10 @@
     transform: rotate(360deg);
   }
 }
-.chart{
+.bigchart{
   height: 70vh;
   width: 100vw;
+}
+.smallchart{
+  height: 30vh;
 }
