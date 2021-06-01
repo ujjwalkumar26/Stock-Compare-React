@@ -1,45 +1,21 @@
 import '../styles/App.css';
 import React, { useState } from 'react';
-import Chart from './Chart';
-import {TickerSymbols} from './symbols';
-import { Dropdown } from "semantic-ui-react";
-import Symbolsearch from './Symbolsearch';
+import {Menu, Container,Image } from "semantic-ui-react";
+import Home from './Home';
 function App() {
-
-  var [chart,setChart]=useState();
-  const options= TickerSymbols.map(ds => {
-    return {
-        key: ds.symbol,
-        text: ds.name,
-        value: ds.symbol
-    }
-  })
-  // const options =[
-  //   { key: 1, text: "TSLA", value:"TSLA" },
-  //   { key: 2, text: "IBM", value:"IBM" },
-  //   { key: 3, text: "AAPL", value:"AAPL" }
-  // ]
-  
-  const handleChange=(event,data)=>{
-    // console.log(data);
-    // console.log(data.symbol.replace("<em>","").replace("</em>",""));
-    // var sym=data.symbol.replace("<em>","").replace("</em>","");
-    //  if(sym==='')
-    //  setChart()
-    //  else 
-    //  setChart(<Chart key={sym} symbol={sym}/>)
-    console.log(data);
-  }
+  var [view,setView] =useState()
   return (
     <div className="App">
-         <Dropdown
-          clearable
-          options={options}
-          onChange={handleChange}
-          selection
-        /> 
-        {/* <Symbolsearch showChart={handleChart}/> */}
-    {chart}
+      <Menu fixed='top' inverted>
+        <Container>
+          <Menu.Item as='a' header onClick={()=>{setView(<Home/>)}}>
+            <Image size='mini' src='/logo.png' style={{ marginRight: '1.5em' }} />
+            Project Name
+          </Menu.Item>
+          <Menu.Item as='a' onClick={()=>{setView(<Home/>)}}>Home</Menu.Item>
+        </Container>
+      </Menu>
+    {view}
     </div>
   );
 }

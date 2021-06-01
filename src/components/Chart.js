@@ -1,12 +1,12 @@
 import React,{useEffect, useState } from 'react';
 import axios from 'axios'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { Segment } from 'semantic-ui-react'
+import { Container, Segment } from 'semantic-ui-react'
 
 function Chart(props){
      // eslint-disable-next-line
     var [symboldata, setSymboldata] = useState([{}]);
-    console.log("here->"+ props.symbol)
+    //console.log("here->"+ props.symbol)
     async function fetchData(){
         const apiURL = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol="+props.symbol+"&interval=5min&apikey=GN9N55H8OTMLM2ES";
         try{
@@ -39,8 +39,9 @@ function Chart(props){
 
     
     return(
-        <div className="chart">
-           <ResponsiveContainer width="100%" height="100%">
+        <Container className="chart">
+        <Segment style={{ marginTop: '1em' }}> {props.symbol}</Segment>
+        <ResponsiveContainer width="100%" height="100%">
         <LineChart
           width={500}
           height={300}
@@ -64,8 +65,8 @@ function Chart(props){
 
         </LineChart>
       </ResponsiveContainer>
-      <Segment raised>{props.symbol}</Segment>
-        </div>
+     
+    </Container>
     )
 }
 export default Chart;
