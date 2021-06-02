@@ -1,14 +1,14 @@
 import '../styles/App.css';
 import React, { useState } from 'react';
 import Chart from './Chart';
-import {TickerSymbols} from './symbols';
 import { Dropdown, Container } from "semantic-ui-react";
+import {Data} from './data';
 function Home(){
     var [chart,setChart]=useState(<Chart key="TSLA" symbol="TSLA" charttype='bigchart' dottype={true}/>);
-  const options= TickerSymbols.map(ds => {
+  const options= Data.map(ds => {
     return {
         key: ds.symbol,
-        text: ds.name,
+        text: ds.company,
         value: ds.symbol
     }
   })
@@ -20,7 +20,7 @@ function Home(){
   }
   return (
     <div className="App">
-      <Container style={{ marginTop: '5em' }}>
+      <Container style={{ marginTop: '7em' }}>
       <Dropdown
           placeholder='Select Stock'
           fluid

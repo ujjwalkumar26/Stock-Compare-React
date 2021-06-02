@@ -12,7 +12,7 @@ function App() {
       <Menu fixed='top' inverted>
         <Container>
           <Menu.Item as='a' header onClick={()=>{setView(<Home/>)}}>
-            <Image size='mini' src='../logo.png' style={{ marginRight: '1.5em' }} />
+            <Image size='mini' src='../logo192.png' style={{ marginRight: '1.5em' }} />
             Stock Charts
           </Menu.Item>
           <Menu.Item as='a' onClick={()=>{setView(<Home/>);}}>Home</Menu.Item>
