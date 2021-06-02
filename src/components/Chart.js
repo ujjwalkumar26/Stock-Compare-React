@@ -8,7 +8,7 @@ function Chart(props){
     var [symboldata, setSymboldata] = useState([{}]);
     //console.log("here->"+ props.symbol)
     async function fetchData(){
-        const apiURL = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol="+props.symbol+"&interval=5min&apikey=GN9N55H8OTMLM2ES";
+        const apiURL = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol="+props.symbol+"&interval=5min&apikey="+process.env.KEY;
         try{
             const response=await axios.get(apiURL);
             //console.log(formatsymboldata(response.data["Time Series (Daily)"]));
